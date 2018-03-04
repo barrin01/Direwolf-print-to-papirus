@@ -1045,6 +1045,10 @@ void app_process_rec_packet (int chan, int subchan, int slice, packet_t pp, alev
 	    // Print it all out in human readable format unless "-q d" option used.
 
 	    decode_aprs_print (&A);
+		  
+	    file = open("aprsmsg.txt","w")
+		    file.write(&A)
+	    file.close();	    
 	  }
 
 	  /*
