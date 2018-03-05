@@ -50,6 +50,8 @@
 #include <string.h>
 #include <signal.h>
 #include <ctype.h>
+#include <iostream>
+#include <fstream>
 
 #if __ARM__
 //#include <asm/hwcap.h>
@@ -1046,10 +1048,16 @@ void app_process_rec_packet (int chan, int subchan, int slice, packet_t pp, alev
 
 	    decode_aprs_print (&A);
 		  
-	    file = open("aprsmsg.txt","w")
-		    file.write(&A)
-	    file.close();	    
+	  	    
 	  }
+	
+	int main () {
+  		ofstream myfile;
+  		myfile.open ("APRSmsg.txt");
+  		myfile << &A;
+  		myfile.close();
+  		return 0;
+		}
 
 	  /*
 	   * Perform validity check on each address.
